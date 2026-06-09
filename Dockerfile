@@ -8,7 +8,7 @@ COPY . /app
 
 RUN corepack enable
 RUN apk add --no-cache python3 alpine-sdk
-RUN git init && git config user.email "a@a.com" && git config user.name "a" && git commit --allow-empty -m "init"
+RUN git init && git remote add origin https://github.com/imputnet/cobalt.git && git config user.email "a@a.com" && git config user.name "a" && git commit --allow-empty -m "init"
 
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
     pnpm install --prod --frozen-lockfile
